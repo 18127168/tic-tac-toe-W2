@@ -13,9 +13,12 @@ import Square from "../Square";
 const Board = ({squares, winningLine, onClick}) => {
 
     const renderSquare = (i) => {
+        if (winningLine !== null){
+            console.log(winningLine.includes(i));
+        }
         return (
         <Square
-          class={ ((winningLine !== null && winningLine.includes(i))? "hightlightCell" : "") }
+          className={ ((winningLine !== null && winningLine.includes(i))? "hightlightCell" : "") }
           value={ squares[i] }
           click={ () => onClick(i) }
         />
